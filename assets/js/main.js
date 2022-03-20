@@ -29,7 +29,7 @@ const skillsContent = document.getElementsByClassName('skills__content'),
     skillsHeader = document.querySelectorAll('.skills__header')
 
 function toggleSkills() {
-    console.log('AAA')
+
     let itemClass = this.parentNode.className
 
     for (i = 0; i < skillsContent.length; i++) {

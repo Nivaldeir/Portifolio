@@ -7,7 +7,7 @@
 
     /*========== Colors ==========*/
     /* Change favorite color */
-    --hue-color: 3; /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
+    --hue-color: 187; /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
 
     /* HSL color mode */
     --first-color: hsl(var(--hue-color), 69%, 61%);
@@ -82,6 +82,11 @@ body.dark-theme {
 }
 
 /*========== Button Dark/Light ==========*/
+
+button{
+    outline: none;
+    border: none;
+}
 .nav__btns {
     display: flex;
     align-items: center;
@@ -278,7 +283,7 @@ img {
 
 .home__content {
     grid-template-columns: 0.5fr 3fr;
-    padding-top: 3.5rem;
+    /* padding-top: 3.5rem; */
     align-items: center;
 }
 
@@ -310,8 +315,31 @@ img {
     grid-column: 1/3;
 }
 
+
+@keyframes typing{
+    from{
+        width: 0;
+    }
+    to{
+        width: 100%;
+    }
+}
+
+@keyframes blickCursor {
+    from{
+        border-right-color: rgba(0,0,0,1);
+    }to{
+        border-right-color: transparent;
+    }
+}
+
+
 .home__title {
-    font-size: var(--big-font-size);
+    border-right: 2px solid rgba(0,0,0,1);
+    animation: blickCursor  .7s steps(40) infinite normal, typing 4s steps(40) 1s normal;
+    font-size: 40px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .home__subtitle {
@@ -479,8 +507,10 @@ img {
 }
 
 .skills__list {
+    height: 0%;
     row-gap: 1.5rem;
     padding-left: 2.7rem;
+    position: relative;
 }
 
 .skills__titles {
@@ -561,9 +591,12 @@ img {
 }
 
 .skills__open .skills__list {
-    height: max-content;
-    margin-bottom: var(--mb-2-5);
+    position: relative;
+    transition:  5s ease;
+    transform: translateY(max-content);
 }
+
+
 
 .skills__open .skills__arrow {
     transform: rotate(-180deg);
@@ -1176,4 +1209,27 @@ img {
         margin-top: 4.5rem;
     }
 
+}
+
+@media (max-width: 1000px){
+    @keyframes typing{
+        from{
+            width: 100%;
+        }
+        to{
+            width: 100%;
+        }
+    }
+    
+    @keyframes blickCursor {
+        from{
+            border-right-color: rgba(0,0,0,1);
+        }to{
+            border-right-color: rgba(0,0,0,1);
+        }
+    }
+    .home__title {
+        border: none;
+        white-space: pre-wrap;
+    }
 }
